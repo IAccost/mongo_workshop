@@ -20,5 +20,7 @@ public class PostService {
     public Post findById(String id) {
         return repo.findById(id).orElseThrow(() -> new ObjectNotFoundException("User not found"));
     }
-
+    public List<Post> findByTitle(String text) {
+        return repo.findByTitleContainingIgnoreCase(text);
+    }
 }
