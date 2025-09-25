@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,16 +18,16 @@ public class Post implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     private String id;
-    private String date;
+    private Date date;
     private String title;
     private String body;
     private AuthorDTO author;
-    private List<CommentDTO> comments = new ArrayList<>();
+    private List<CommentDTO>  comments = new ArrayList<>();
 
     public Post() {
     }
 
-    public Post(String id, String date, String title, String body, AuthorDTO author) {
+    public Post(String id, Date date, String title, String body, AuthorDTO author) {
         this.author = author;
         this.id = id;
         this.date = date;
@@ -42,11 +43,11 @@ public class Post implements Serializable {
         this.id = id;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
